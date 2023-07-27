@@ -24,13 +24,13 @@ Using single quotes is also allowed:
 
 # Help
 
-#### The command takes too long
+## The command takes too long
 
 The command takes a long time to run **when it is first used**. This is because the transformer model used needs to be downloaded.
 
 After the first use, the command will be much faster because the model will have been cached.
 
-#### An incorrect command is outputted
+## An incorrect command is outputted
 
 cmd-find works better if short descriptions that directly describe what a command does are used.
 
@@ -41,7 +41,7 @@ cmd-find can only find commands within **page 1** of the [Linux man pages](https
 
 If the command you are looking for is not within this list, it will not be found by the tool.
 
-#### Installation failed
+## Installation failed
 
 Ensure that both python and pip are installed. 
 
@@ -51,7 +51,7 @@ Ensure that you are connected to the internet and run
 
     pip install cmd-find
 
-#### The command results in an error
+## The command results in an error
 
 Ensure that the given description is enclosed within either single or double quotes:
 
