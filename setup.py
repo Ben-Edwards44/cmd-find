@@ -18,7 +18,7 @@ setup(
     url = "https://github.com/Ben-Edwards44/cmd-find",
     py_modules = ["main", "app"],
     packages = find_packages(),
-    install_requires = [open_file("requirements.txt")],
+    install_requires = [open_file("requirements.txt").split("\n")],
     python_requires=">=3.8",
     entry_points = """
         [console_scripts]
