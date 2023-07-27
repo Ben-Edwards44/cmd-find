@@ -18,10 +18,8 @@ setup(
     url = "https://github.com/Ben-Edwards44/cmd-find",
     py_modules = ["main", "app"],
     packages = find_packages(),
-    install_requires = [open_file("requirements.txt").split("\n")],
+    install_requires = ["numpy>=1.24.1",
+                        "sentence_transformers>=2.2.2"],
     python_requires=">=3.8",
-    entry_points = """
-        [console_scripts]
-        cmd-find=main:main
-    """
+    entry_points = {"console_scripts" : ["cmd-find = main:main"]}
 )
