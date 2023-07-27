@@ -14,8 +14,7 @@ def get_args():
     if len(useful_args) == 1:
         return useful_args[0]
     else:
-        print("Invalid arguments")
-        quit()
+        raise Exception("Invalid arguments")
 
 
 def main():
