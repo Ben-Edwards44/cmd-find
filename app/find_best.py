@@ -1,4 +1,4 @@
-import neural_network
+import app.neural_network as neural_network
 import numpy
 from json import loads
 

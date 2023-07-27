@@ -1,4 +1,4 @@
-import find_best
+import app.find_best as find_best
 from sys import argv
 
 
