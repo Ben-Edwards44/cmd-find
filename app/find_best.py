@@ -1,5 +1,6 @@
 import app.neural_network as neural_network
 import app.command_info as command_info
+import app.settings as settings
 import numpy
 
 
@@ -18,13 +19,13 @@ def find_semantic_similarity(desc, embedding):
     return cosine_similarity(embedding, embedding2)
 
 
-def progress_bar(completed, total, length):
+def progress_bar(completed, total):
     ratio_done = completed / total
 
-    num_hash = int(length * ratio_done)
-    num_line = length - num_hash
+    num_hash = int(settings.PROG_BAR_LENGTH * ratio_done)
+    num_line = settings.PROG_BAR_LENGTH - num_hash
 
-    bar = f"|{'#' * num_hash}{'~' * num_line}| {ratio_done * 100 :.1f}%"
+    bar = f"Searching commands |{settings.PROG_BAR_COMPLETE * num_hash}{settings.PROG_BAR_INCOMPLETE * num_line}| {ratio_done * 100 :.1f}%"
 
     if ratio_done == 1:
         end = "\n"
@@ -34,22 +35,28 @@ def progress_bar(completed, total, length):
     print(bar, end=end)
 
 
-def main(desc):
-    commands = command_info.COMMAND_INFO["commands"]
-
-    best_similarity = 0
-    best_command = None
+def find_most_similar(commands, desc, n):
+    best = [(0, 0) for _ in range(n)]
 
     count = 0
     total = len(commands.items())
     for k, v in commands.items():
         similarity = find_semantic_similarity(desc, v["embedding"])
 
-        if similarity > best_similarity:
-            best_similarity = similarity
-            best_command = (k, commands[k])
+        if similarity > best[0][0]:
+            best.pop(0)
+            best.append((similarity, (k, commands[k])))
+            best.sort()
 
         count += 1
-        progress_bar(count, total, 50)
+        progress_bar(count, total)
 
-    return best_command
+    return [i[1] for i in best]
+
+
+def main(desc, n):
+    commands = command_info.COMMAND_INFO["commands"]
+
+    best_commands = find_most_similar(commands, desc, n)
+
+    return best_commands
