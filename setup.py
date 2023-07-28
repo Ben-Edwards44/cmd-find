@@ -17,7 +17,7 @@ setup(
     long_description_content_type = "text/markdown",
     url = "https://github.com/Ben-Edwards44/cmd-find",
     py_modules = ["main", "app"],
-    packages = find_packages(),
+    packages = find_packages(exclude=["create_file"]),
     install_requires = ["numpy>=1.24.1",
                         "sentence_transformers>=2.2.2"],
     python_requires=">=3.8",
