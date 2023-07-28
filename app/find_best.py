@@ -1,13 +1,6 @@
 import app.neural_network as neural_network
+import app.command_info as command_info
 import numpy
-from json import loads
-
-
-def read_file():
-    with open("command_info.json", "r") as file:
-        data = file.read()
-
-    return loads(data)
 
 
 def cosine_similarity(embedding1, embedding2):
@@ -42,7 +35,7 @@ def progress_bar(completed, total, length):
 
 
 def main(desc):
-    commands = read_file()["commands"]
+    commands = command_info.COMMAND_INFO["commands"]
 
     best_similarity = 0
     best_command = None
