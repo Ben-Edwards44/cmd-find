@@ -1,28 +1,28 @@
-# cmd-find
+# cmd_find
 
-cmd-find is a command line tool that finds linux commands from their descriptions.
+cmd_find is a command line tool that finds linux commands from their descriptions.
 
 
 # Installation
 
-Use pip to install cmd-find by running the following command:
+Use pip to install cmd_find by running the following command:
 
-    pip install cmd-find
+    pip install cmd_find
 
 
 # Usage
 
 ## Normal command calls
 
-Run the `cmd-find` command followed by a description enclosed in single or double quotes and the number of suggested commands.
+Run the `cmd_find` command followed by a description enclosed in single or double quotes and the number of suggested commands.
 
 The tool should be used in the following way:
 
-    cmd-find [NUM OF SUGGESTED COMMANDS] [COMMAND DESCRIPTION]
+    cmd_find [NUM OF SUGGESTED COMMANDS] [COMMAND DESCRIPTION]
 
 An example would look like this:
 
-    cmd-find 2 "change the current working directory"
+    cmd_find 2 "change the current working directory"
 
 An example output of this command would look like this:
 
@@ -41,13 +41,13 @@ An example output of this command would look like this:
 
 Using single quotes or swapping the positions of the two arguments is also allowed:
 
-    cmd-find 'change the current working directory' 2
+    cmd_find 'change the current working directory' 2
 
 If the number of suggested commands is not specified, its default value is 3.
 
 The following command would result in 3 suggested commands:
 
-    cmd-find "change the current working directory"
+    cmd_find "change the current working directory"
 
 # Help
 
@@ -59,12 +59,12 @@ After the first use, the command will be much faster because the model will have
 
 ## An incorrect command is outputted
 
-cmd-find works better if short descriptions that directly describe what a command does are used.
+cmd_find works better if short descriptions that directly describe what a command does are used.
 
-- Use `cmd-find 3 "list all files in a directory"`
-- Do not use `cmd-find 3 "I want a command that lists the files in a directory"`
+- Use `cmd_find 3 "list all files in a directory"`
+- Do not use `cmd_find 3 "I want a command that lists the files in a directory"`
 
-cmd-find can only find commands within **page 1** of the [Linux man pages](https://github.com/mkerrisk/man-pages) or those covered by the `help` command.
+cmd_find can only find commands within **page 1** of the [Linux man pages](https://github.com/mkerrisk/man-pages) or those covered by the `help` command.
 
 If the command you are looking for is not within this list, it will not be found by the tool.
 
@@ -80,16 +80,16 @@ Ensure that both of the above commands execute successfully and that you are con
 
 If python and pip are both installed and the installation still fails, try the following commands:
 
-    pip3 install cmd-find
+    pip3 install cmd_find
 
-    python3 -m pip install cmd-find
+    python3 -m pip install cmd_find
 
-    python -m pip install cmd-find
+    python -m pip install cmd_find
 
 ## The command results in an error
 
 Ensure that the given description is enclosed within either single or double quotes:
 
-- `cmd-find 3 "create a new directory"` is correct.
-- `cmd-find 3 'create a new directory'` is also correct.
-- `cmd-find 3 create a new directory` is incorrect.
+- `cmd_find 3 "create a new directory"` is correct.
+- `cmd_find 3 'create a new directory'` is also correct.
+- `cmd_find 3 create a new directory` is incorrect.
