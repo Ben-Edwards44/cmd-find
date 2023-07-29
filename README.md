@@ -72,6 +72,8 @@ The tool can also only output commands once at a time. If the task you are tryin
 
 ## Installation failed
 
+### Check pip and python
+
 Ensure that both python and pip are installed. 
 
 Run `pip --version` and `python3 --version` to check that they are both installed.
@@ -85,6 +87,15 @@ If python and pip are both installed and the installation still fails, try the f
     python3 -m pip install cmd_find
 
     python -m pip install cmd_find
+
+### Manually install dependencies
+
+If the installation still fails, you can try and manually install the dependencies by running the following commands:
+
+    pip install numpy
+    pip install sentence-transformers
+
+If you are trying to install onto something like a raspberry pi, ensure you have a **64-bit** OS installed. This is required for the `sentence-transformers` library.
 
 ## The command results in an error
 
