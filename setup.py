@@ -9,9 +9,9 @@ def open_file(filename):
 
 
 setup(
-    name = "cmd_find",
+    name = "cmd-find",
     author = "Ben Edwards",
-    version = "0.0.4",
+    version = "0.0.5",
     description = "A CLI tool that finds Linux commands from their descriptions",
     long_description = open_file("README.md"),
     long_description_content_type = "text/markdown",
